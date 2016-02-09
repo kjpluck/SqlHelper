@@ -27,3 +27,13 @@ Lightweight Stored Procedure wrapper class
         Console.WriteLine($"An exception occurred while executing the getUserId stored procedure: {e}");
         throw;
     }
+
+### A little bit of auto mapping
+
+	var widgets = Sql.CallSpReturningListOf<Widget>("getWidgets", Sql.Param("widgetId", widgetId));
+
+	public class Widget
+    {
+        public string Doohickey { get; set; }
+        public string Thingamajig { get; set; }
+    }
