@@ -7,8 +7,8 @@
     <ProjectGuid>{D272CEB3-25A9-4C79-B9CC-7947FFEFD2A8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SqlHelper</RootNamespace>
-    <AssemblyName>SqlHelper</AssemblyName>
+    <RootNamespace>KevsSqlHelper</RootNamespace>
+    <AssemblyName>KevsSqlHelper</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Reflection;
 
-namespace SqlHelper
+namespace KevsSqlHelper
 {
     public static class Sql
     {
