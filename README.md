@@ -1,7 +1,11 @@
 # SqlHelper
 Lightweight Stored Procedure wrapper class
 
-Usage
+## Install
+
+    PM> Install-Package KevsSqlHelper
+    
+## Usage
 
     Sql.ConnectionString = "Server=FOO;Database=BAR;User Id=BAZ;Password=BOSH;";
 
