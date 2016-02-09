@@ -9,7 +9,7 @@ Lightweight Stored Procedure wrapper class
 
     Sql.ConnectionString = "Server=FOO;Database=BAR;User Id=BAZ;Password=BOSH;";
 
-    var spParamList2 = new List<SqlParameter>
+    var spParamList = new List<SqlParameter>
     {
         Sql.Param("username", "herp@derp.com"),
         Sql.Param("password", "password1"),
