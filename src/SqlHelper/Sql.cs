@@ -11,9 +11,12 @@ namespace KevsSqlHelper
     public static class Sql
     {
         public static string ConnectionString { get; set; }
+        public static string LastStoredProcedureCalled { get; private set; }
         
         private static SqlCommand StoredProcedure(SqlConnection connection, string name)
         {
+            LastStoredProcedureCalled = name;
+
             return new SqlCommand
             {
                 CommandText = name,
