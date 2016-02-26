@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -20,7 +21,12 @@ namespace KevsSqlHelper
                 Connection = connection
             };
         }
-        
+
+        public static SqlParameterCollection CallStoredProcedure(string name, SqlParameter parameter)
+        {
+            return CallStoredProcedure(name, new List<SqlParameter> {parameter});
+        }
+
         public static SqlParameterCollection CallStoredProcedure(string name, List<SqlParameter> parameters)
         {
 
@@ -124,6 +130,25 @@ namespace KevsSqlHelper
         public static SqlParameter Param(string name, long value)
         {
             return Param(name, value, SqlDbType.BigInt);
+        }
+
+        [Obsolete("SingleParam is deprecated, functions now have overloads that accept single parameters.")]
+        public static List<SqlParameter> SingleParam(string name, object value = null,
+            SqlDbType sqlDbType = SqlDbType.NVarChar,
+            ParameterDirection direction = ParameterDirection.Input)
+        {
+            return new List<SqlParameter> { Param(name, value, sqlDbType, direction) };
+        }
+
+        [Obsolete("SingleParam is deprecated, functions now have overloads that accept single parameters.")]
+        public static List<SqlParameter> SingleParam(string name, long value)
+        {
+            return new List<SqlParameter> { Param(name, value) };
+        }
+
+        public static T CallSpReturning<T>(string name, SqlParameter parameter) where T : new()
+        {
+            return CallSpReturning<T>(name, new List<SqlParameter> {parameter});
         }
 
         public static T CallSpReturning<T>(string name, List<SqlParameter> parameters) where T : new()
