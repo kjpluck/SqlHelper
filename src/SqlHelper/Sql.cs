@@ -96,6 +96,9 @@ namespace KevsSqlHelper
                 if (!itemProperty.CanWrite)
                     continue;
 
+                if(reader.GetValue(i) == DBNull.Value)
+                    continue;
+
                 try
                 {
                     itemProperty.SetValue(newItem, reader.GetValue(i), null);
