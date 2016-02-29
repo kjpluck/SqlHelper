@@ -102,7 +102,7 @@ namespace KevsSqlHelper
                 }
                 catch (Exception e)
                 {
-                    throw new Exception($"Not able to set \"{itemProperty.Name}\" to \"{reader.GetValue(i)}\"",e);
+                    throw new Exception($"Not able to set '{itemProperty.Name}' to '{reader.GetValue(i)}'",e);
                 }
             }
             return newItem;
