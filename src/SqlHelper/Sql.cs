@@ -96,7 +96,14 @@ namespace KevsSqlHelper
                 if (!itemProperty.CanWrite)
                     continue;
 
-                itemProperty.SetValue(newItem, reader.GetValue(i), null);
+                try
+                {
+                    itemProperty.SetValue(newItem, reader.GetValue(i), null);
+                }
+                catch (Exception e)
+                {
+                    throw new Exception($"Not able to set \"{itemProperty.Name}\" to \"{reader.GetValue(i)}\"",e);
+                }
             }
             return newItem;
         }
