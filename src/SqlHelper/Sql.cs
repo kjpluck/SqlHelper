@@ -65,6 +65,21 @@ namespace KevsSqlHelper
             }
         }
 
+        public static DataTable CallSpReturningDataTable(string name, params SqlParameter[] parameters)
+        {
+
+            using (var sqlConnection = new SqlConnection(ConnectionString))
+            using (var storedProcedure = MakeStoredProcedure(sqlConnection, name, parameters.ToList()))
+            {
+                sqlConnection.Open();
+
+                var dataAdapter = new SqlDataAdapter(storedProcedure);
+                var dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                return dataTable;
+            }
+        }
+
         private static List<T> GetItems<T>(SqlDataReader reader) where T : new()
         {
             var items = new List<T>();
